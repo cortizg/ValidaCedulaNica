@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />  
+  <title>Nicaragua</title>
+  <script language="JavaScript" src="cedula.js" type="text/javascript"></script>  
+  <script language="JavaScript" type="text/javascript">
+  function isCedulaValida(txtcedula){
+   var cedula = new ValidarCedula();
+    
+   cedula.setCedula(txtcedula.value);
+ 
+   tempo = "Cédula a Validar: " + cedula.getCedula() + "\n";
+   tempo+= "Prefijo Cédula a Validar: " + cedula.getPrefijoCedula()+ "\n";
+   tempo+= "Fecha Cédula a Validar: " + cedula.getFechaCedula()+ "\n";
+   tempo+= "Sufijo Cédula a Validar: " + cedula.getSufijoCedula()+ "\n";
+   tempo+= "Letra Cédula a Validar: " + cedula.getLetraCedula()+ "\n";
+   tempo+= "¿Es Cédula Válida?: " + (cedula.isCedulaValida()?"SI":"NO")+ "\n";
+   tempo+= "¿Es Prefijo Válido?: " + (cedula.isPrefijoValido()?"SI":"NO")+ "\n";
+   tempo+= "¿Es Fecha Válida?: " + (cedula.isFechaValida()?"SI":"NO")+ "\n";
+   tempo+= "¿Es Sufijo Válido?: " + (cedula.isSufijoValido()?"SI":"NO")+ "\n";
+   tempo+= "¿Es Letra Válida?: " + (cedula.isLetraValida()?"SI":"NO")+ "\n";
+ 
+   alert(tempo);
+  }
+  </script>
+ </head>
+ <body>
+  <table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+   <tbody>
+   <tr align="center">
+    <td colspan="2" rowspan="1">Validar C&eacute;dula Nicaragua</td>
+   </tr>
+   <tr>
+    <td>C&eacute;dula Nicaragua</td>
+    <td><input name="cedula" id="cedula" /></td>
+   </tr>
+   <tr>
+    <td><br />
+    </td>
+    <td><input onclick="isCedulaValida(document.getElementById('cedula'));" name="validar" value="validar" type="button" /><br />
+    </td>
+   </tr>  
+   </tbody>
+  </table>
+  <br />
+ </body>
+</html>

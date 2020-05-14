@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>  
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />  
+  <title>Nicaragua</title>
+  <script language="JavaScript" src="cedula2.js" type="text/javascript"></script>  
+  <script>
+  function isCedulaValida( objcedula ) {
+    let tempo = '';
+    var cedula = new ValidarCedula();
+
+    if (objcedula.value.length == 0 ) { 
+      alert('el campo está vacio'); 
+    } else {
+
+      if (objcedula.value.length < 14) {
+        alert('largo de cédula debe ser 14')
+      } else {
+
+        cedula.setCedula(objcedula.value);
+
+        if (cedula.cedula.length > 14) {
+          alert ('largo de cédula debe ser 14');
+        } else {
+
+          tempo = 'Cédula a Validar: ' + cedula.getCedula() + '\n';
+          tempo += 'Patrón de Cédula: ' + (cedula.isPatronValido() ? 'VÁLIDO' : 'INVÁLIDO') + '\n';
+          tempo += 'Prefijo Cédula a Validar: ' + cedula.getPrefijoCedula() + ' ¿Válido?: ' + (cedula.isPrefijoValido() ? 'SI' : 'NO') + '\n';
+          tempo += 'Fecha Cédula a Validar: ' + cedula.getFechaCedula() + ' ¿Válida?: ' + (cedula.isFechaValida() ? 'SI' : 'NO') + '\n';
+          tempo += 'Sufijo Cédula a Validar: ' + cedula.getSufijoCedula() + ' ¿Válido?: ' + (cedula.isSufijoValido() ? 'SI' : 'NO') + '\n';
+          tempo += 'Letra Cédula a Validar: ' + cedula.getLetraCedula() + ' ¿Válida?: ' + (cedula.isLetraValida() ? 'SI' : 'NO') + '\n';
+          tempo += '¿Es Cédula Válida?: ' + (cedula.isCedulaValida() ? 'SI' : 'NO') + '\n';
+          alert(tempo);
+        }
+      }
+    }
+  }
+  </script>
+ </head>
+ <body>
+  <table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr align="center">
+        <td colspan="2" rowspan="1">Validar C&eacute;dula Nicaragua</td>
+      </tr>
+      <tr>
+        <td>C&eacute;dula Nicaragua</td>
+        <td><input name="cedula" id="cedula" pattern="^[0-9]{3}(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[012])([0-9]{2})[0-9]{4}[A-Y]$" required placeholder="0011010101234A"/></td>
+      </tr>
+      <tr>
+        <td><br />
+        </td>
+        <td><input onclick="isCedulaValida(document.getElementById('cedula'));" name="validar" value="validar" type="button" /><br/>
+        </td>
+      </tr>  
+    </tbody>
+  </table>
+  <br/>
+ </body>
+</html>
